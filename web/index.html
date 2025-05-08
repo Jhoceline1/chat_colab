@@ -1,23 +1,23 @@
-<html>
+<!DOCTYPE html>
+<html lang="es">
     <head>
-        <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        
+        <title>Chat Colaborativo</title> <!-- Título actualizado -->
         <link rel="stylesheet" href="estilos.css"> <!-- AQUI SE AGREGA -->
     </head>
     <body>
-        <h1>Chat Prueba</h1>
-        <div> 
-            <div>
-                <label>Nombre:</label>
-                <input type="text" id="usuario" placeholder="usuario" />
+        <h1>Chat Colaborativo</h1> <!-- Título del chat actualizado -->
+        <div class="chat-container">
+            <div class="input-group">
+                <label for="usuario">Nombre:</label>
+                <input type="text" id="usuario" placeholder="Ingresa tu nombre" />
             </div>
-            <div>
-                <label>Mensaje:</label>
-                <textarea id="mensaje"></textarea>
+            <div class="input-group">
+                <label for="mensaje">Mensaje:</label>
+                <textarea id="mensaje" placeholder="Escribe tu mensaje"></textarea>
             </div>
-            <div>
+            <div class="input-group">
                 <button id="btnEnviar">Enviar</button>
             </div>  
             <div id="conversacion"></div>

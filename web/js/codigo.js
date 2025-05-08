@@ -32,7 +32,7 @@
 
     function onMessage(evt){
         var obj = JSON.parse(evt.data),
-            msg = 'Nombre ' + obj.nombre + ' dice: ' + obj.mensaje;
+            msg = '⚫' + obj.nombre + ':' + obj.mensaje;
         mensajes.innerHTML += '<br/>' + msg;
     }
 })(window, document, JSON);
