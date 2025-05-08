@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-@ServerEndpoint(value="/chat", encoders = {EncoderMensaje.class},decoders = {DecoderMensaje.class}) 
+@ServerEndpoint(value="/chat_colab", encoders = {EncoderMensaje.class},decoders = {DecoderMensaje.class}) 
 
 public class MiChat {
     
