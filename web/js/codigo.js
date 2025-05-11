@@ -8,6 +8,19 @@
         nombre = document.getElementById('usuario'),
         mensaje = document.getElementById('mensaje');
 
+   
+    var nombresAleatorios = [
+        "Zorro Ágil", "Gato Místico", "Perro Valiente", "Panda Alegre", "Tigre Curioso",
+        "Lobo Sabio", "Mono Travieso", "Tortuga Zen", "Águila Real", "Rana Saltarina"
+    ];
+
+   
+    function asignarNombreAleatorio() {
+        var nombreGenerado = nombresAleatorios[Math.floor(Math.random() * nombresAleatorios.length)];
+        nombre.value = nombreGenerado;
+        return nombreGenerado;
+    }
+
     ws.onopen = onOpen;
     ws.onclose = onClose;
     ws.onmessage = onMessage;
@@ -22,33 +35,39 @@
     }
 
     function enviar(){
+        var nombreUsuario = nombre.value.trim();
+
+        
+        if (nombreUsuario === "") {
+            nombreUsuario = asignarNombreAleatorio();
+        }
+
         var msg = {
-            nombre: nombre.value,
+            nombre: nombreUsuario,
             mensaje: mensaje.value
         };
+
         ws.send(JSON.stringify(msg));
-        mensaje.value = ""; 
+        mensaje.value = "";
     }
 
     function onMessage(evt){
         var obj = JSON.parse(evt.data);
         var nombreUsuario = obj.nombre;
         var texto = obj.mensaje;
-        var icono = '⚫'; // Por defecto: mensaje de usuario
+        var icono = '⚫'; // Por defecto: mensaje normal
 
         if (nombreUsuario === "Sistema") {
-            // Detectamos tipo de mensaje del sistema
             if (texto.includes("se ha unido")) {
-                icono = '✅'; // Entrada
+                icono = '✅';
             } else if (texto.includes("ha salido")) {
-                icono = '❌'; // Salida
+                icono = '❌';
             } else {
-                icono = 'ℹ️'; // Otros mensajes del sistema
+                icono = 'ℹ️';
             }
-
-            mensajes.innerHTML += `<br/><em>${icono} ${texto}</em>`;
+            mensajes.innerHTML += <br/><em>${icono} ${texto}</em>;
         } else {
-            mensajes.innerHTML += `<br/>${icono} <strong>${nombreUsuario}:</strong> ${texto}`;
+            mensajes.innerHTML += <br/>${icono} <strong>${nombreUsuario}:</strong> ${texto};
         }
     }
 })(window, document, JSON);
