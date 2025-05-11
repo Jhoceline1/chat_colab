@@ -45,9 +45,28 @@ public class MiChat {
             enviarATodos(notificacion);
             enviarListaUsuarios();
         }
+        if ("privado".equals(mensaje.getTipo())) {
+            Mensaje copia = new Mensaje();
+            copia.setTipo("privado");
+            copia.setNombre(mensaje.getNombre());
+            copia.setMensaje(mensaje.getMensaje());
+            copia.setPara(mensaje.getPara());
 
-        mensaje.setTipo("mensaje");
-        enviarATodos(mensaje);
+            for (Map.Entry<Session, String> entry : usuarios.entrySet()) {
+                if (entry.getValue().equals(copia.getPara()) || entry.getValue().equals(copia.getNombre())) {
+                    entry.getKey().getBasicRemote().sendObject(copia);
+                }
+            }
+            return;
+        }
+        Mensaje publico = new Mensaje();
+        publico.setTipo("mensaje");
+        publico.setNombre(mensaje.getNombre());
+        publico.setMensaje(mensaje.getMensaje());
+        publico.setPara("todos");
+
+        enviarATodos(publico);
+
     }
 
     private void enviarATodos(Mensaje mensaje) throws IOException, EncodeException {

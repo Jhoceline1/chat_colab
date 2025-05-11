@@ -23,6 +23,7 @@ public class EncoderMensaje implements Encoder.TextStream<Mensaje> {
 
         if (object.getMensaje() != null) builder.add("mensaje", object.getMensaje());
         if (object.getEstado() != null) builder.add("estado", object.getEstado());
+        if (object.getPara() != null) builder.add("para", object.getPara()); 
 
         try (JsonWriter jsonWriter = Json.createWriter(writer)) {
             jsonWriter.writeObject(builder.build());

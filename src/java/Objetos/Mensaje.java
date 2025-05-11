@@ -8,6 +8,7 @@ public class Mensaje {
     private String tipo;
     private String estado;
     private List<String> lista;
+    private String para;
 
     public Mensaje() {}
 
@@ -25,4 +26,7 @@ public class Mensaje {
 
     public List<String> getLista() { return lista; }
     public void setLista(List<String> lista) { this.lista = lista; }
+    
+    public String getPara() { return para; }
+    public void setPara(String para) { this.para = para;}
 }

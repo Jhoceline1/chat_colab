@@ -18,6 +18,8 @@ public class DecoderMensaje implements Decoder.TextStream<Mensaje> {
             JsonObject json = jsonReader.readObject();
             mensaje.setNombre(json.getString("nombre", ""));
             mensaje.setMensaje(json.getString("mensaje", ""));
+            mensaje.setTipo(json.getString("tipo", "mensaje"));
+            mensaje.setPara(json.getString("para", "todos"));
         }
         return mensaje;
     }
