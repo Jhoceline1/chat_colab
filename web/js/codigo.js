@@ -10,6 +10,9 @@
         listaUsuarios = document.getElementById('lista-usuarios');
 
     var nombreAsignado = "";
+    
+    var sonidoMensaje = new Audio('recursos/pop.mp3');
+    var sonidoCliente = new Audio('recursos/mensaje.mp3');
 
     const nombresAleatorios = [
         "León", "Tigre", "Elefante", "Cebra", "Jirafa", "Mono", "Puma", "Pantera", "Águila", "Lobo"
@@ -53,11 +56,13 @@
         if(obj.tipo === "mensaje"){
             var msg = '⚫ ' + obj.nombre + ': ' + obj.mensaje;
             mensajes.innerHTML += '<br/>' + msg;
+            sonidoMensaje.play();
         } else if(obj.tipo === "sistema"){
             var msg = obj.estado === "entrada"
                 ? '✅ ' + obj.nombre + ' se ha unido al chat'
                 : '❌ ' + obj.nombre + ' ha salido del chat';
             mensajes.innerHTML += '<br/>' + msg;
+            sonidoCliente.play();
         } else if(obj.tipo === "usuarios"){
             actualizarListaUsuarios(obj.lista);
         }
