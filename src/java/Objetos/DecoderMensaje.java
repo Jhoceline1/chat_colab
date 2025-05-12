@@ -24,6 +24,9 @@ public class DecoderMensaje implements Decoder.TextStream<Mensaje> {
         return mensaje;
     }
 
-    @Override public void init(EndpointConfig config) {}
-    @Override public void destroy() {}
+    @Override public void init(EndpointConfig config) {
+    }
+    
+    @Override public void destroy() {
+    }
 }
