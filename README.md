@@ -12,8 +12,3 @@ Este proyecto es una aplicación de chat colaborativo, donde los usuarios pueden
 * **NetBeans IDE 17** para abrir y ejecutar el proyecto.
 * **GlassFish 7.0** como servidor de aplicaciones configurado para desplegar la aplicación.
 
-## Instrucciones de ejecución
-
-1. Abre el proyecto en **NetBeans IDE 17**.
-2. Configura el servidor **GlassFish 7.0** si aún no está configurado en tu entorno de NetBeans.
-3. Ejecuta el proyecto desde NetBeans y asegúrate de que el servidor de GlassFish esté corriendo correctamente.
