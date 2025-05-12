@@ -1,8 +1,7 @@
 (function(window, document, JSON) {
     'use strict';
     
-    /*const url = 'ws://' + window.location.host + '/chat_colab/chat_colab';*///para forma remota
-    const url = 'ws://' + window.location.host + '/chat_colab/chat_colab';//para forma local
+    const url = 'ws://' + window.location.host + '/chat_colab/chat_colab';//forma local
     const ws = new WebSocket(url);
 
     const mensajes = document.getElementById('conversacion');
